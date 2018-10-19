@@ -17,6 +17,14 @@ class Rental {
         return _daysRented;
     }
 
+    public PriceCode getPriceCode() {
+        return _movie.getPriceCode();
+    }
+
+    public String getTitle() {
+        return _movie.getTitle();
+    }
+
     public Movie getMovie() {
         return _movie;
     }

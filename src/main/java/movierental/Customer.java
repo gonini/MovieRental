@@ -38,7 +38,7 @@ class Customer {
             double thisAmount = 0;
 
             //determine amounts for each line
-            switch (each.getMovie().getPriceCode()) {
+            switch (each.getPriceCode()) {
                 case regular:
                     thisAmount += DEFAULT_PRICE_BY_REGULAR;
                     if (each.getDaysRented() > LONG_TERM_RENTAL_DAYS_BY_REGULAR)
@@ -57,12 +57,12 @@ class Customer {
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == PriceCode.newRelease) && each.getDaysRented() > 1)
+            if ((each.getPriceCode() == PriceCode.newRelease) && each.getDaysRented() > 1)
                 frequentRenterPoints++;
 
             // show figures for this rental
 
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+            result += "\t" + each.getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
         }
 
