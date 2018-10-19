@@ -3,7 +3,7 @@ package movierental;
 /**
  * The rental class represents a customer renting a movie.
  */
-public class Rental {
+class Rental {
 
     private Movie _movie;
     private int _daysRented;
