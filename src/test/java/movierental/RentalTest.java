@@ -11,13 +11,13 @@ public class RentalTest {
 
     @Test
     public void getDaysRented() {
-        Rental rental = new Rental(new Movie(MOVIE_NAME, Movie.NEW_RELEASE), DAY_RENTED);
+        Rental rental = new Rental(new Movie(MOVIE_NAME, PriceCode.newRelease), DAY_RENTED);
         assertEquals(rental.getDaysRented(), DAY_RENTED);
     }
 
     @Test
     public void getMovie() {
-        Movie movie = new Movie(MOVIE_NAME, Movie.NEW_RELEASE);
+        Movie movie = new Movie(MOVIE_NAME, PriceCode.newRelease);
         Rental rental = new Rental(movie, DAY_RENTED);
         assertNotNull(rental.getMovie());
         assertEquals(movie, rental.getMovie());

@@ -13,7 +13,7 @@ public class CustomerTest {
     @Test
     public void addRental() {
         Customer customer = new Customer(CUSTOMER_NAME);
-        customer.addRental(new Rental(new Movie(MOVIE_NAME, Movie.NEW_RELEASE), DAYS_RENTED));
+        customer.addRental(new Rental(new Movie(MOVIE_NAME, PriceCode.newRelease), DAYS_RENTED));
     }
 
     @Test
@@ -34,35 +34,35 @@ public class CustomerTest {
     @Test
     public void statement_regular_rental_less_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
-        customer.addRental(createRental(Movie.REGULAR, 1));
+        customer.addRental(createRental(PriceCode.regular, 1));
         assertEquals(customer.statement(), createResult(1, 2.0));
     }
 
     @Test
     public void statement_regular_rental_more_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
-        customer.addRental(createRental(Movie.REGULAR, 5));
+        customer.addRental(createRental(PriceCode.regular, 5));
         assertEquals(customer.statement(), createResult(1, 6.5));
     }
 
     @Test
     public void statement_new_release_rental() {
         Customer customer = new Customer(CUSTOMER_NAME);
-        customer.addRental(createRental(Movie.NEW_RELEASE, 10));
+        customer.addRental(createRental(PriceCode.newRelease, 10));
         assertEquals(customer.statement(), createResult(2, 30.0));
     }
 
     @Test
     public void statement_childrens_rental_less_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
-        customer.addRental(createRental(Movie.CHILDRENS, 1));
+        customer.addRental(createRental(PriceCode.childrens, 1));
         assertEquals(customer.statement(), createResult(1, 1.5));
     }
 
     @Test
     public void statement_childrens_rental_more_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
-        customer.addRental(createRental(Movie.CHILDRENS, 5));
+        customer.addRental(createRental(PriceCode.childrens, 5));
         assertEquals(customer.statement(), createResult(1, 4.5));
     }
 
@@ -77,11 +77,11 @@ public class CustomerTest {
                 "Amount owed is 44.5\n" +
                 "You earned 6 frequent renter points";
         Customer customer = new Customer(CUSTOMER_NAME);
-        customer.addRental(createRental(Movie.CHILDRENS, 5));
-        customer.addRental(createRental(Movie.CHILDRENS, 1));
-        customer.addRental(createRental(Movie.NEW_RELEASE, 10));
-        customer.addRental(createRental(Movie.REGULAR, 5));
-        customer.addRental(createRental(Movie.REGULAR, 1));
+        customer.addRental(createRental(PriceCode.childrens, 5));
+        customer.addRental(createRental(PriceCode.childrens, 1));
+        customer.addRental(createRental(PriceCode.newRelease, 10));
+        customer.addRental(createRental(PriceCode.regular, 5));
+        customer.addRental(createRental(PriceCode.regular, 1));
         assertEquals(customer.statement(), result);
     }
 
@@ -92,7 +92,7 @@ public class CustomerTest {
                 "You earned " + frequent + " frequent renter points";
     }
 
-    private Rental createRental(int movieType, int daysRented) {
+    private Rental createRental(PriceCode movieType, int daysRented) {
         return new Rental(new Movie(MOVIE_NAME, movieType), daysRented);
     }
 }
