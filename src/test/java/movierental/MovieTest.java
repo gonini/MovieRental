@@ -16,11 +16,11 @@ public class MovieTest {
     public void setPriceCode() {
         Movie movie = new Movie(MOVIE_NAME, PriceCode.newRelease);
         movie.setPriceCode(PriceCode.childrens);
-        assertEquals(movie.getPriceCode(), PriceCode.childrens);
+        assertEquals(PriceCode.childrens, movie.getPriceCode());
     }
 
     @Test
     public void getTitle() {
-        assertEquals(new Movie(MOVIE_NAME, PriceCode.newRelease).getTitle(), MOVIE_NAME);
+        assertEquals(MOVIE_NAME, new Movie(MOVIE_NAME, PriceCode.newRelease).getTitle());
     }
 }

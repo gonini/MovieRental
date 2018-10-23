@@ -19,56 +19,56 @@ public class CustomerTest {
     @Test
     public void getName() {
         Customer customer = new Customer(CUSTOMER_NAME);
-        assertEquals(customer.getName(), CUSTOMER_NAME);
+        assertEquals(CUSTOMER_NAME, customer.getName());
     }
 
     @Test
     public void statement_none_rental() {
-        String result = "Rental Record for " + CUSTOMER_NAME + "\n" +
+        String expected = "Rental Record for " + CUSTOMER_NAME + "\n" +
                 "Amount owed is 0.0\n" +
                 "You earned 0 frequent renter points";
         Customer customer = new Customer(CUSTOMER_NAME);
-        assertEquals(customer.statement(), result);
+        assertEquals(expected, customer.statement());
     }
 
     @Test
     public void statement_regular_rental_less_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
         customer.addRental(createRental(PriceCode.regular, 1));
-        assertEquals(customer.statement(), createResult(1, 2.0));
+        assertEquals(createResult(1, 2.0), customer.statement());
     }
 
     @Test
     public void statement_regular_rental_more_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
         customer.addRental(createRental(PriceCode.regular, 5));
-        assertEquals(customer.statement(), createResult(1, 6.5));
+        assertEquals(createResult(1, 6.5), customer.statement());
     }
 
     @Test
     public void statement_new_release_rental() {
         Customer customer = new Customer(CUSTOMER_NAME);
         customer.addRental(createRental(PriceCode.newRelease, 10));
-        assertEquals(customer.statement(), createResult(2, 30.0));
+        assertEquals(createResult(2, 30.0), customer.statement());
     }
 
     @Test
     public void statement_childrens_rental_less_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
         customer.addRental(createRental(PriceCode.childrens, 1));
-        assertEquals(customer.statement(), createResult(1, 1.5));
+        assertEquals(createResult(1, 1.5), customer.statement());
     }
 
     @Test
     public void statement_childrens_rental_more_than_2_days() {
         Customer customer = new Customer(CUSTOMER_NAME);
         customer.addRental(createRental(PriceCode.childrens, 5));
-        assertEquals(customer.statement(), createResult(1, 4.5));
+        assertEquals(createResult(1, 4.5), customer.statement());
     }
 
     @Test
     public void statement_multiple() {
-        String result = "Rental Record for 고구미\n" +
+        String expected = "Rental Record for 고구미\n" +
                 "\t" + MOVIE_NAME + "\t4.5\n" +
                 "\t" + MOVIE_NAME + "\t1.5\n" +
                 "\t" + MOVIE_NAME + "\t30.0\n" +
@@ -82,7 +82,7 @@ public class CustomerTest {
         customer.addRental(createRental(PriceCode.newRelease, 10));
         customer.addRental(createRental(PriceCode.regular, 5));
         customer.addRental(createRental(PriceCode.regular, 1));
-        assertEquals(customer.statement(), result);
+        assertEquals(expected, customer.statement());
     }
 
     private String createResult(int frequent, double amount) {

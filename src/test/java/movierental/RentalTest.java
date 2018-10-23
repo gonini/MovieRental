@@ -12,7 +12,7 @@ public class RentalTest {
     @Test
     public void getDaysRented() {
         Rental rental = new Rental(new Movie(MOVIE_NAME, PriceCode.newRelease), DAY_RENTED);
-        assertEquals(rental.getDaysRented(), DAY_RENTED);
+        assertEquals(DAY_RENTED, rental.getDaysRented());
     }
 
     @Test
