@@ -17,10 +17,22 @@ class Customer {
     }
 
     public String statement() {
-        String result = "Rental Record for " + getName() + "\n";
-        result += rentals.getFiguresForRental();
-        result += "Amount owed is " + String.valueOf(rentals.getAmounts()) + "\n";
-        result += "You earned " + String.valueOf(rentals.getFrequentRenterPoints()) + " frequent renter points";
-        return result;
+        return getHeader() +
+                getText() +
+                getFooter();
+    }
+
+    private String getHeader() {
+        return "Rental Record for " + getName() + "\n";
+    }
+
+    private String getText() {
+        return rentals.getFiguresForRental();
+    }
+
+    private String getFooter() {
+        return "Amount owed is " + String.valueOf(rentals.getAmounts()) + "\n" +
+                "You earned " + String.valueOf(rentals.getFrequentRenterPoints()) +
+                " frequent renter points";
     }
 }
