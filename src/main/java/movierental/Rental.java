@@ -22,7 +22,7 @@ class Rental implements ProductRental {
         _daysRented = daysRented;
     }
 
-    public int getDaysRented() {
+    private int getDaysRented() {
         return _daysRented;
     }
 
@@ -40,7 +40,6 @@ class Rental implements ProductRental {
 
     @Override
     public double getAmounts() {
-
             double thisAmount = 0;
 
             //determine amounts for each line
