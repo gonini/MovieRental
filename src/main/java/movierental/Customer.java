@@ -17,18 +17,10 @@ class Customer {
     }
 
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         String result = "Rental Record for " + getName() + "\n";
-
-        totalAmount = rentals.getAmounts();
-        frequentRenterPoints = rentals.getFrequentRenterPoints();
         result += rentals.getFiguresForRental();
-
-        // add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-
+        result += "Amount owed is " + String.valueOf(rentals.getAmounts()) + "\n";
+        result += "You earned " + String.valueOf(rentals.getFrequentRenterPoints()) + " frequent renter points";
         return result;
     }
 }
