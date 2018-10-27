@@ -3,30 +3,29 @@ package movierental;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Rentals implements ProductRental {
+public class Rentals {
 
-    private List<ProductRental> rentals = new LinkedList<>();
+    private List<Rental> rentals = new LinkedList<>();
 
     public double getAmounts() {
         return rentals.stream()
-                .mapToDouble(ProductRental::getAmounts)
+                .mapToDouble(Rental::getAmounts)
                 .sum();
     }
 
     public int getFrequentRenterPoints() {
         return rentals.stream()
-                .mapToInt(ProductRental::getFrequentRenterPoints)
+                .mapToInt(Rental::getFrequentRenterPoints)
                 .sum();
     }
 
-    @Override
     public String getFiguresForRental() {
         return rentals.stream()
-                .map(ProductRental::getFiguresForRental)
+                .map(Rental::getFiguresForRental)
                 .reduce("", (figuresA, figuresB) -> figuresA + figuresB);
     }
 
-    public void add(ProductRental rental) {
+    public void add(Rental rental) {
         if(rental == null) {
             throw new IllegalArgumentException();
         }

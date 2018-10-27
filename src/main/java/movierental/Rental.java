@@ -3,7 +3,7 @@ package movierental;
 /**
  * The rental class represents a customer renting a movie.
  */
-class Rental implements ProductRental {
+class Rental  {
 
     private Movie movie;
     private int daysRented;
@@ -25,17 +25,14 @@ class Rental implements ProductRental {
         return movie;
     }
 
-    @Override
     public double getAmounts() {
         return movie.getPrice(getDaysRented());
     }
 
-    @Override
     public int getFrequentRenterPoints() {
         return movie.getFrequentRenterPoints(daysRented);
     }
 
-    @Override
     public String getFiguresForRental() {
         return "\t" + getTitle() + "\t" + String.valueOf(getAmounts()) + "\n";
     }
