@@ -17,22 +17,6 @@ class Customer {
     }
 
     public String statement() {
-        return getHeader() +
-                getText() +
-                getFooter();
-    }
-
-    private String getHeader() {
-        return "Rental Record for " + getName() + "\n";
-    }
-
-    private String getText() {
-        return rentals.getFiguresForRental();
-    }
-
-    private String getFooter() {
-        return "Amount owed is " + String.valueOf(rentals.getAmounts()) + "\n" +
-                "You earned " + String.valueOf(rentals.getFrequentRenterPoints()) +
-                " frequent renter points";
+        return rentals.getRentalInfo(_name);
     }
 }

@@ -25,15 +25,15 @@ class Rental  {
         return movie;
     }
 
-    public double getAmounts() {
+    double getAmounts() {
         return movie.getPrice(getDaysRented());
     }
 
-    public int getFrequentRenterPoints() {
+    int getFrequentRenterPoints() {
         return movie.getFrequentRenterPoints(daysRented);
     }
 
-    public String getFiguresForRental() {
+    String getFiguresForRental() {
         return "\t" + getTitle() + "\t" + String.valueOf(getAmounts()) + "\n";
     }
 }
