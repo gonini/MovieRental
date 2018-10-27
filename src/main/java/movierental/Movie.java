@@ -3,11 +3,11 @@ package movierental;
 class Movie {
 
     private String title;
-    private PriceStrategy priceStrategy;
+    private SettlementStrategy settlement;
 
-    public Movie(String title, PriceStrategy priceStrategy) {
+    public Movie(String title, SettlementStrategy settlement) {
         this.title = title;
-        this.priceStrategy = priceStrategy;
+        this.settlement = settlement;
     }
 
     public String getTitle() {
@@ -15,13 +15,10 @@ class Movie {
     }
 
     public double getPrice(int daysRented) {
-        return priceStrategy.getPrice(daysRented);
+        return settlement.getPrice(daysRented);
     }
 
-    public int getFrequentRenterPoints(int daysRented) {
-        int frequentRenterPoints = 1;
-        if ((priceStrategy instanceof NewReleasePrice) && daysRented > 1)
-            frequentRenterPoints++;
-        return frequentRenterPoints;
+    public int getFrequentPoints(int daysRented) {
+        return settlement.getFrequentPoints(daysRented);
     }
 }

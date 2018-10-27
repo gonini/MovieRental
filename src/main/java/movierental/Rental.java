@@ -30,7 +30,7 @@ class Rental  {
     }
 
     int getFrequentRenterPoints() {
-        return movie.getFrequentRenterPoints(daysRented);
+        return movie.getFrequentPoints(daysRented);
     }
 
     String getFiguresForRental() {

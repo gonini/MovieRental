@@ -1,6 +1,6 @@
 package movierental;
 
-public class NewReleasePrice implements PriceStrategy {
+public class NewReleaseSettlement implements SettlementStrategy {
 
     private static final int DEFAULT_PRICE_FACTOR_BY_NEW_RELEASE = 3;
 
@@ -9,5 +9,10 @@ public class NewReleasePrice implements PriceStrategy {
         double ret = 0.0;
         ret += daysRented * DEFAULT_PRICE_FACTOR_BY_NEW_RELEASE;
         return ret;
+    }
+
+    @Override
+    public int getFrequentPoints(int daysRented) {
+        return daysRented > 1 ? 2 : 1;
     }
 }

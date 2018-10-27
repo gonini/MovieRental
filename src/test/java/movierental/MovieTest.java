@@ -9,6 +9,8 @@ public class MovieTest {
 
     @Test
     public void getTitle() {
-        assertEquals(MOVIE_NAME, new Movie(MOVIE_NAME, new RegularPrice()).getTitle());
+        assertEquals(MOVIE_NAME, new Movie(MOVIE_NAME, new RegularSettlement()).getTitle());
     }
+
+
 }

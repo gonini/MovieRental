@@ -1,6 +1,6 @@
 package movierental;
 
-public class RegularPrice implements PriceStrategy {
+public class RegularSettlement implements SettlementStrategy {
 
     private static final int LONG_TERM_RENTAL_DAYS_BY_REGULAR = 2;
     private static final int DEFAULT_PRICE_BY_REGULAR = 2;
@@ -13,5 +13,10 @@ public class RegularPrice implements PriceStrategy {
         if (daysRented > LONG_TERM_RENTAL_DAYS_BY_REGULAR)
             ret += (daysRented - LONG_TERM_RENTAL_DAYS_BY_REGULAR) * LONG_TERM_RENTAL_COST_FACTOR;
         return ret;
+    }
+
+    @Override
+    public int getFrequentPoints(int daysRented) {
+        return 1;
     }
 }

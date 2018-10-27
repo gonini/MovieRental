@@ -1,6 +1,6 @@
 package movierental;
 
-public class ChildrenPrice implements PriceStrategy {
+public class ChildrenSettlement implements SettlementStrategy {
 
     private static final int LONG_TERM_RENTAL_DAYS_BY_CHILDRENS = 3;
     private static final double DEFAULT_PRICE_BY_CHILDRENS = 1.5;
@@ -13,5 +13,10 @@ public class ChildrenPrice implements PriceStrategy {
         if (daysRented > LONG_TERM_RENTAL_DAYS_BY_CHILDRENS)
             ret += (daysRented - LONG_TERM_RENTAL_DAYS_BY_CHILDRENS) * LONG_TERM_RENTAL_COST_FACTOR;
         return ret;
+    }
+
+    @Override
+    public int getFrequentPoints(int daysRented) {
+        return 1;
     }
 }
