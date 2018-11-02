@@ -1,14 +1,12 @@
 package movierental;
 
-public class NewReleaseSettlement implements SettlementStrategy {
+public class NewReleaseSettlement extends Settlement {
 
     private static final int DEFAULT_PRICE_FACTOR_BY_NEW_RELEASE = 3;
 
     @Override
     public double getPrice(int daysRented) {
-        double ret = 0.0;
-        ret += daysRented * DEFAULT_PRICE_FACTOR_BY_NEW_RELEASE;
-        return ret;
+        return daysRented * DEFAULT_PRICE_FACTOR_BY_NEW_RELEASE;
     }
 
     @Override

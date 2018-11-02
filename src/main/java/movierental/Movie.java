@@ -3,9 +3,9 @@ package movierental;
 class Movie {
 
     private String title;
-    private SettlementStrategy settlement;
+    private Settlement settlement;
 
-    public Movie(String title, SettlementStrategy settlement) {
+    public Movie(String title, Settlement settlement) {
         this.title = title;
         this.settlement = settlement;
     }

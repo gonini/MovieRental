@@ -92,7 +92,7 @@ public class CustomerTest {
                 "You earned " + frequent + " frequent renter points";
     }
 
-    private Rental createRental(SettlementStrategy priceStrategy, int daysRented) {
+    private Rental createRental(Settlement priceStrategy, int daysRented) {
         return new Rental(new Movie(MOVIE_NAME, priceStrategy), daysRented);
     }
 }
